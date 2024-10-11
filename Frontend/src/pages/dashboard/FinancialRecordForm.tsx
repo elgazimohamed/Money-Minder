@@ -23,6 +23,9 @@ export const FinancialRecordForm = () => {
 
     console.log(newRecord)
 
+    // add record to the database
+    // addRecord(newRecord)
+
     // Empty the inputs
     setDescription("")
     setAmount("")
