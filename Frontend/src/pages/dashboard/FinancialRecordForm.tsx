@@ -14,7 +14,7 @@ export const FinancialRecordForm = () => {
 
     const newRecord = {
       userId: user?.id,
-      date: new Date().toISOString(),
+      date: new Date(),
       description: description,
       ammout: parseFloat(amount),
       category: category,
