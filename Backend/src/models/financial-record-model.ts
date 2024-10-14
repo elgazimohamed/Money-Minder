@@ -1,13 +1,5 @@
 import mongoose from "mongoose"
-
-interface FinancialRecord {
-  userId: string
-  date: Date
-  description: string
-  amount: number
-  category: string
-  paymentMethod: string
-}
+import FinancialRecord from "../types/financialRecord"
 
 const financialRecordSchema = new mongoose.Schema<FinancialRecord>({
   userId: { type: String, required: true },

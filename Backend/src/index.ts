@@ -12,4 +12,6 @@ connectToDB()
 
 app.use("/financial-records", financialRecordRouter)
 
-app.listen(port, () => console.log(`Server running on port ${port}`))
+app.listen(port, () =>
+  console.log(`Server is running at: http://localhost:${port}`)
+)
