@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { useUser } from "@clerk/clerk-react"
+import { useFinancialRecords } from "../../contexts/financial-record-context"
 
 export const FinancialRecordForm = () => {
   const [description, setDescription] = useState<string>("")
   const [amount, setAmount] = useState<string>("")
   const [category, setCategory] = useState<string>("")
   const [paymentMethod, setPaymentMethod] = useState<string>("")
+  const { addRecord } = useFinancialRecords()
 
   const { user } = useUser()
 
@@ -13,18 +15,16 @@ export const FinancialRecordForm = () => {
     event.preventDefault()
 
     const newRecord = {
-      userId: user?.id,
+      userId: user?.id ?? "",
       date: new Date(),
       description: description,
-      ammout: parseFloat(amount),
+      amount: parseFloat(amount),
       category: category,
       paymentMethod: paymentMethod,
     }
 
-    console.log(newRecord)
-
     // add record to the database
-    // addRecord(newRecord)
+    addRecord(newRecord)
 
     // Empty the inputs
     setDescription("")
